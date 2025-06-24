@@ -17,6 +17,13 @@ public class Sysinfo {
 	public void setIP_addr(String iP_addr) {
 		IP_addr = iP_addr;
 	}
-	
+
+	@Override
+    	public String toString() {
+        return "Sysinfo {" +
+                "Hostname='" + Hostname + '\'' +
+                ", IP_addr='" + IP_addr + '\'' +
+                '}';
+    }
 	
 }
