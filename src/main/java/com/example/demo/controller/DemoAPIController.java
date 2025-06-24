@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoAPIController {
 	
 	@GetMapping("/sysinfo")
-	public Sysinfo printHostNameAndIpAddress() {
+	public String printHostNameAndIpAddress() {
 		
 		Sysinfo info=new Sysinfo();
 		
@@ -25,12 +25,20 @@ public class DemoAPIController {
             System.err.println("Unable to determine the hostname and IP address.");
             e.printStackTrace();
         }
-        
-        return info;
-    }
+
+	System.out.println(info.toString());
+        return info.toString();
+    	}
 	
 	@GetMapping("/")
 	public String welcome() {
+
+		System.out.println("Called the Welcome Endpoint ... !!!");
 		return "Welcome!!!";
 	}
+
+	@GetMapping("/error")
+    	public String generateError() {
+        	throw new RuntimeException("Deliberate exception triggered for /error endpoint.");
+    	}
 }
