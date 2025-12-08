@@ -34,7 +34,7 @@ public class DemoAPIController {
 	public String welcome() {
 
 		System.out.println("Called the Welcome Endpoint ... !!!");
-		return "Welcome!!!";
+		return "Hi from Welcome Endpoint !!!";
 	}
 
 	@GetMapping("/error")
