@@ -16,5 +16,5 @@ jobs:
         # echo "SHORT_SHA=${GITHUB_SHA::8}"
         # echo "SHA=${GITHUB_SHA}"
          docker login -u admin -p abc123 http://172.31.21.249:5000
-         docker build . --file Dockerfile --tag 172.31.21.249:5000/aks-java:${GITHUB_SHA}-${GITHUB_RUN_NUMBER}
+         docker build . --file Dockerfile --tag 172.31.21.249:5000/aks-java:${GITHUB_SHA::8}-${GITHUB_RUN_NUMBER}
          docker push 172.31.21.249:5000/aks-java:${GITHUB_SHA}-${GITHUB_RUN_NUMBER}
