@@ -11,9 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
+    - name: Build and push the Docker image
       run: |
-        ls -l
-        pwd
-        whoami
-        docker build . --file Dockerfile --tag aks-java:$(date +%s)
+        docker login -u admin -p abc123 http://172.31.21.249:5000
+        docker build . --file Dockerfile --tag 172.31.21.249:5000/aks-java:$(date +%s)
+        docker push 172.31.21.249:5000/aks-java:$(date +%s)
